@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import <objc/runtime.h>
+#import "OneViewController.h"
 
 @interface RuntimeTestTests : XCTestCase
 

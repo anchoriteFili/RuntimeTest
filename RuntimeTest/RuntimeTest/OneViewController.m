@@ -8,7 +8,12 @@
 
 #import "OneViewController.h"
 
-@interface OneViewController ()
+@interface OneViewController () {
+    NSString *name;
+}
+
+@property (nonatomic,strong) NSString *sex;
+@property (nonatomic,assign) int age;
 
 @end
 
