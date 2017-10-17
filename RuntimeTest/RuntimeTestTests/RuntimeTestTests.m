@@ -108,6 +108,103 @@
      IMP class_replaceMethod ( Class cls, SEL name, IMP imp, const char *types );
      
      // 返回方法的具体实现
+     IMP class_getMethodImplementation ( Class cls, SEL name );
+     IMP class_getMethodImplementation_stret ( Class cls, SEL name );
+     
+     // 类实例是否相应指定的selector
+     BOOL class_respondsToSelector ( Class cls, SEL sel );
+     
+     
+     class_addMethod的实现会覆盖父类的方法实现，但不会取代本类中已存在的实现，如果本类中
+     包含一个同名的实现，则函数会返回NO。如果要修改已存在实现，可以使用method_setImplementation
+     一个Objective-C方法是一个简单的C函数，它至少包含两个参数--self和_cmd。所以，我们的
+     实现函数(IMP参数指向的函数)至少需要两个参数，如下所示：
+     
+     void myMethodIMP(id self, SEL _cmd)
+     {
+         // implementation
+     }
+     
+     // 添加协议
+     BOOL class_addProtocol ( Class cls, Protocol *protocol );
+     
+     // 返回类是否实现指定的协议
+     BOOL class_conformsToProtocol ( Class cls, Protocol *protocol );
+     
+     // 返回类实现的协议列表
+     Protocol *class_copyProtocolList ( Class cls, unsigned int *outCount);
+     
+     // 获取版本号
+     int class_getVersion ( Class cls );
+     
+     // 设置版本号
+     void class_setVersion ( Class cls, int version );
+     
+     // 创建一个新类和元类
+     Class objc_allocateClassPair ( Class superclass, const char *name, size_t extraBytes );
+     
+     // 销毁一个类及其相关联的类
+     void objc_disposeClassPair ( Class cls );
+     
+     // 在应用中注册由objc_allocateClassPair创建的类
+     void objc_registerClassPair ( Class cls );
+     
+     // 创建类实例
+     id class_createInstance ( Class cls, size_t extraBytes );
+     
+     // 在指定位置创建类实例
+     id objc_constructInstance ( Class cls, void *bytes );
+     
+     // 销毁类实例
+     void *objc_destructInstance ( id obj );
+     
+     // 返回指定对象的一份拷贝
+     id object_copy ( id obj, size_t size );
+     
+     // 释放指定对象占用的内存
+     id object_dispose ( id obj );
+     
+     // 修改类实例的实例变量的值
+     Ivar object_setInstanceVariable (id obj, const char *name, void *value );
+     
+     // 获取对象实例变量的值
+     Ivar object_getInstanceVariable ( id obj, const char *name, void **outValue );
+     
+     // 返回指定给定对象分配的任何额外字节的指针
+     void * object_getIndexedIvars ( id obj );
+     
+     // 返回对象中实例变量的值
+     id object_getIvar ( id obj, Ivar ivar );
+     
+     // 设置对象中实例变量的值
+     void object_setIvar ( id obj, Ivar ivar, id value )
+     
+     // 返回指定对象的类名
+     const char * object_getClassName ( id obj );
+     
+     // 返回对象的类
+     Class object_getClass ( id obj );
+     
+     // 设置对象的类
+     Class object_setClass ( id obj, Class cls );
+     
+     // 获取以注册的类定义的列表
+     int objc_getClassList ( Class *buffer, int bufferCount );
+     
+     // 创建并返回一个指定所有已注册类的指针列表
+     Class * objc_copyClassList ( unsigned int *outCount );
+     
+     // 返回指定类的类定义
+     Class objc_lookUpClass ( const char *name );
+     Class objc_getClass ( const char * name );
+     Class objc_getRequiredClass ( const char *name );
+     
+     // 返回指定类的元类
+     Class objc_getMetaClass ( const char *name );
+     
+     
+     
+     
      
      
      

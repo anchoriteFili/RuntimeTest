@@ -7,6 +7,9 @@
 //
 
 #import "OneViewController.h"
+#import <objc/runtime.h>
+#import "ViewController.h"
+
 
 @interface OneViewController () {
     NSString *name;
@@ -22,6 +25,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    
+    NSLog(@"是否相应了方法   %d",class_respondsToSelector([ViewController class], @selector(testMethod)));
+    
+    
+    
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {

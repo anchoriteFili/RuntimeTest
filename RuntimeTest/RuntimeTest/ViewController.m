@@ -19,9 +19,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    [self.navigationController pushViewController:[[OneViewController alloc] init] animated:YES];
+    [self testMethod];
 }
 
+- (void)testMethod {
+    [self.navigationController pushViewController:[[OneViewController alloc] init] animated:YES];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
