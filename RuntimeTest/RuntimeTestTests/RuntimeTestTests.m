@@ -92,11 +92,11 @@
 
 - (void)testDict {
     
-    NSDictionary *dic = @{@"name":@"张三"};
-    Model *model = [[Model alloc] init];
-    [model initWithDict:dic];
-    
-    NSLog(@"name ======= %@",model.name);
+//    NSDictionary *dic = @{@"name":@"张三"};
+//    Model *model = [[Model alloc] init];
+//    [model initWithDict:dic];
+//    
+//    NSLog(@"name ======= %@",model.name);
     
 }
 
