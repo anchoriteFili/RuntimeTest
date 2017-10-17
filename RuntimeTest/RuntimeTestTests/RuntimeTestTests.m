@@ -18,6 +18,111 @@
 
 @implementation RuntimeTestTests
 
+/**
+ Object-C语言是一门动态语言，它将很多静态语言在编译和链接时期做的事放到了运行时来处理。
+ 这种动态语言的优势在于：我们写代码时更具灵活性，如我们可以吧消息转发给我们想要的对象，
+ 或者随意交换一个方法的实现等。
+ Object-C类是由Class类型来表示的，它实际上是一个指向objc_class结构体的指针。
+ */
+
+- (void)testClass {
+    /**
+     参数1：父类
+     参数2：子类名
+     参数3：extraBytes
+     */
+    Class newClass = objc_allocateClassPair([NSError class], "TestClass", 0); // 创建新的类名
+    
+    
+    /**
+     参数1：类名
+     参数2：方法名称
+     参数3：方法（IMP）你写的方法名
+     参数4：一个定义该函数返回值类型和参数类型的字符串，根据返回值和参数动态的确定
+     查看返回值类型表达方法
+     这里可以查看对应返回值类型的表达方法v表示void后边的:后边表示参数 比如说 定义
+     int:(id self, SEL _cmd, NSString *name)那么就是i@:@这样的。
+     */
+    class_addMethod(newClass, @selector(testMetaClass), (IMP)TestMetaClass, "v@:");
+    
+    objc_registerClassPair(newClass); // 注册创建的类
+    
+    // 实例化对象
+    id instance = [[newClass alloc] initWithDomain:@"some domain" code:0 userInfo:nil];
+    
+    [instance performSelector:@selector(testMetaClass)]; // 调用方法
+    
+    /**
+     // 获取类的名称
+     const char * class_getName( Class cls );
+     
+     // 获取类的父类
+     Class class_getSuperclass( Class cls );
+     
+     // 判断给定的Class是否是一个元类
+     BOOL class_isMetaClass ( Class cls );
+     
+     // 获取实例大小
+     size_t class_getInstanceSize ( Class cls );
+     
+     在objc_class中，所有的成员变量、属性的信息都放在链表ivars中。ivars是一个
+     class_copyIvarList的函数，它返回一个指向成员变量信息的数组，数组中每个元素是
+     是指向该成员变量信息的objc_ivar结构体的指针。这个数组不包含在父类中声明的变量。
+     outCount指针返回数组的大小。需要注意的是，我们必须使用free()来释放这个数组。
+     
+     // 获取类中指定名称实例成员变量的信息
+     Ivar class_gatInstanceVariable ( Class cls, const char *name );
+     
+     // 获取类成员变量的信息
+     Ivar class_getClassVariable ( Class cls, const char *name);
+     
+     // 添加成员变量
+     BOOL class_addIvar ( Class cls, const char *name,size_t size,
+     uint8_t alignment, const char *types );
+     
+     // 获取整个成员变量列表
+     Ivar * class_copyIvarList ( Class cls, unsigned int *outCount );
+     
+     // 获取指定的属性
+     objc_porperty_t class_getProperty ( Class cls, const char *name );
+     
+     // 获取属性列表
+     objc_property_t * class_copyPropertyList ( Class cls, unsigned int *outCount );
+     
+     // 为类添加属性
+     BOOL class_addproperty ( Class cls, const char *name, const objc_property_attribute_t *attributes, unsigned int attributeCount );
+     
+     // 替换类的属性
+     void class_replaceProperty ( Class cls, const char *name, const objc_property_attribute_t *attributes, unsigned int attributeCount );
+     
+     // 添加方法
+     BOOL class_addMethod ( Class cls, SEL name, IMP imp, const char *types );
+     
+     // 获取实例方法
+     Method class_getInstanceMethod ( Class cls, SEL name );
+     
+     // 获取所有方法的数组
+     Method * class_copyMethodList ( Class cls, unsigned int *outCount );
+     
+     // 替代方法的实现
+     IMP class_replaceMethod ( Class cls, SEL name, IMP imp, const char *types );
+     
+     // 返回方法的具体实现
+     
+     
+     
+     
+     */
+    
+    // 获取类的类名
+    
+    
+}
+
+- (void)testMetaClass {
+    NSLog(@"哈哈哈哈");
+}
+
 
 // 测试ivar相关
 - (void)testViarList {
@@ -95,7 +200,7 @@
 //    NSDictionary *dic = @{@"name":@"张三"};
 //    Model *model = [[Model alloc] init];
 //    [model initWithDict:dic];
-//    
+//
 //    NSLog(@"name ======= %@",model.name);
     
 }
