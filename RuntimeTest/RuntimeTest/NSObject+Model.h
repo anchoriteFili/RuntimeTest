@@ -10,4 +10,6 @@
 
 @interface NSObject (Model)
 
+- (instancetype)initWithDict:(NSDictionary *)dict;
+
 @end

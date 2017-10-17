@@ -9,6 +9,8 @@
 #import <XCTest/XCTest.h>
 #import <objc/runtime.h>
 #import "OneViewController.h"
+#import "NSObject+Model.h"
+#import "Model.h"
 
 @interface RuntimeTestTests : XCTestCase
 
@@ -88,8 +90,15 @@
  核心方法：在NSObject的分类中添加方法
  */
 
-
-
+- (void)testDict {
+    
+    NSDictionary *dic = @{@"name":@"张三"};
+    Model *model = [[Model alloc] init];
+    [model initWithDict:dic];
+    
+    NSLog(@"name ======= %@",model.name);
+    
+}
 
 
 - (void)setUp {

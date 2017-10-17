@@ -11,7 +11,14 @@
 
 @implementation NSObject (Model)
 
+/**
+ 可以进一步思考：
+ 如何识别基本数据类型的属性并处理空（nil,null)值的处理
+ json中嵌套json（Dict或Array）的处理
+ */
+
 - (instancetype)initWithDict:(NSDictionary *)dict {
+    
     
     if (self = [self init]) {
 //        1. 获取类的属性即属性对应的类型

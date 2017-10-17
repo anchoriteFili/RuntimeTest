@@ -18,6 +18,7 @@
 		FA0052531F90646F008839AA /* OneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0052511F90646F008839AA /* OneViewController.m */; };
 		FA0052541F90646F008839AA /* OneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA0052521F90646F008839AA /* OneViewController.xib */; };
 		FA00525A1F908ADE008839AA /* NSObject+Model.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0052591F908ADE008839AA /* NSObject+Model.m */; };
+		FA00525D1F9095D8008839AA /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = FA00525C1F9095D8008839AA /* Model.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,8 @@
 		FA0052521F90646F008839AA /* OneViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OneViewController.xib; sourceTree = "<group>"; };
 		FA0052581F908ADE008839AA /* NSObject+Model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+Model.h"; sourceTree = "<group>"; };
 		FA0052591F908ADE008839AA /* NSObject+Model.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Model.m"; sourceTree = "<group>"; };
+		FA00525B1F9095D8008839AA /* Model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
+		FA00525C1F9095D8008839AA /* Model.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +120,8 @@
 				FA0052511F90646F008839AA /* OneViewController.m */,
 				FA0052581F908ADE008839AA /* NSObject+Model.h */,
 				FA0052591F908ADE008839AA /* NSObject+Model.m */,
+				FA00525B1F9095D8008839AA /* Model.h */,
+				FA00525C1F9095D8008839AA /* Model.m */,
 				FA0052521F90646F008839AA /* OneViewController.xib */,
 				FA0052241F906324008839AA /* Main.storyboard */,
 				FA0052271F906325008839AA /* Assets.xcassets */,
@@ -282,6 +287,7 @@
 				FA0052231F906324008839AA /* ViewController.m in Sources */,
 				FA00522E1F906325008839AA /* main.m in Sources */,
 				FA00525A1F908ADE008839AA /* NSObject+Model.m in Sources */,
+				FA00525D1F9095D8008839AA /* Model.m in Sources */,
 				FA0052201F906324008839AA /* AppDelegate.m in Sources */,
 				FA0052531F90646F008839AA /* OneViewController.m in Sources */,
 			);
