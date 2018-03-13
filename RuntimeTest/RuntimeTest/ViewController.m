@@ -1,4 +1,4 @@
-//
+///Users/zetafin/赵宏亚/git/RuntimeTest/RuntimeTest/RuntimeTest/oneViewController.m
 //  ViewController.m
 //  RuntimeTest
 //
@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "OneViewController.h"
 
 @interface ViewController ()
 
@@ -19,12 +18,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    [self testMethod];
 }
 
-- (void)testMethod {
-    [self.navigationController pushViewController:[[OneViewController alloc] init] animated:YES];
+#pragma 点击进入tableview
+- (IBAction)click:(UIButton *)sender {
+    
+    
+    
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
