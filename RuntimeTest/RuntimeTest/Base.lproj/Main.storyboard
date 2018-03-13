@@ -46,7 +46,7 @@
         <!--One View Controller-->
         <scene sceneID="7ab-7c-WSC">
             <objects>
-                <viewController id="TbA-Ko-SkS" customClass="oneViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="onevciden" id="TbA-Ko-SkS" customClass="oneViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hU0-sB-v62">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -68,6 +68,9 @@
                                     <constraint firstAttribute="height" constant="33" id="rrP-t5-zub"/>
                                 </constraints>
                                 <state key="normal" title="change Name"/>
+                                <connections>
+                                    <action selector="changename:" destination="TbA-Ko-SkS" eventType="touchUpInside" id="vkY-VX-NmR"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="my name is" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y0v-4T-xSZ">
                                 <rect key="frame" x="44" y="185" width="96" height="21"/>
@@ -103,6 +106,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="L7M-4I-Xhm"/>
                     </view>
+                    <connections>
+                        <outlet property="textfield" destination="X4R-OL-cgP" id="5pJ-jV-RuW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jGn-2j-f8b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

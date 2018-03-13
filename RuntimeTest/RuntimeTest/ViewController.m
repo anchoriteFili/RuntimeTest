@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "TableViewController.h"
 
 @interface ViewController ()
 
@@ -23,8 +24,8 @@
 #pragma 点击进入tableview
 - (IBAction)click:(UIButton *)sender {
     
-    
-    
+    TableViewController *tabvc = [TableViewController new];
+    [self.navigationController pushViewController:tabvc animated:YES];
 }
 
 

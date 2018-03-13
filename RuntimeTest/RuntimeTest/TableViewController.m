@@ -7,6 +7,7 @@
 //
 
 #import "TableViewController.h"
+#import "oneViewController.h"
 
 @interface TableViewController ()
 
@@ -99,7 +100,9 @@
     
     switch (index) {
         case 0: {
-            
+            // 从storyBoard中获取控制器
+            oneViewController *oneVC = (oneViewController *)[mainStoryBoard instantiateViewControllerWithIdentifier:@"onevciden"];
+            [self.navigationController pushViewController:oneVC animated:YES];
             break;
         }
             
