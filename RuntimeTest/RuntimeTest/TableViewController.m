@@ -8,6 +8,7 @@
 
 #import "TableViewController.h"
 #import "oneViewController.h"
+#import "twoViewController.h"
 
 @interface TableViewController ()
 
@@ -108,7 +109,9 @@
             
             
         case 1: {
-            
+            // 从storyBoard中获取控制器
+            twoViewController *twoVC = (twoViewController *)[mainStoryBoard instantiateViewControllerWithIdentifier:@"twovciden"];
+            [self.navigationController pushViewController:twoVC animated:YES];
             break;
         }
             

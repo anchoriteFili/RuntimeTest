@@ -7,8 +7,13 @@
 //
 
 #import "twoViewController.h"
+#import "Person.h"
+#import <objc/runtime.h>
 
 @interface twoViewController ()
+
+@property (nonatomic,strong) Person *person;
+@property (weak, nonatomic) IBOutlet UITextField *textview;
 
 @end
 
@@ -17,6 +22,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.person = [Person new];
+    
+    
+}
+
+- (void)sayFrom {
+    
+    class_addMethod([self.person class], @selector(guess), (IMP)guessAnswer, "v@:");
+    
+    if ([self.person respondsToSelector:@selector(guess)]) {
+        [self.person performSelector:@selector(guess)];
+    } else {
+        NSLog(@"Sorry, I don`t know");
+    }
+    
+    self.textview.text = @"beijing";
+}
+
+void guessAnswer(id self,SEL _cmd) {
+    NSLog(@"I am frome bejing");
+}
+
+
+- (IBAction)answer:(UIButton *)sender {
+    [self sayFrom];
 }
 
 - (void)didReceiveMemoryWarning {
