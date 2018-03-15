@@ -131,7 +131,8 @@
         }
             
         case 4: {
-            
+            FiveViewController *fiveVC = [FiveViewController new];
+            [self.navigationController pushViewController:fiveVC animated:YES];
             break;
         }
             
