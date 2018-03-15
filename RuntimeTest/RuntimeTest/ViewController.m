@@ -19,6 +19,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    
+    
 }
 
 #pragma 点击进入tableview
@@ -27,8 +29,6 @@
     TableViewController *tabvc = [TableViewController new];
     [self.navigationController pushViewController:tabvc animated:YES];
 }
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

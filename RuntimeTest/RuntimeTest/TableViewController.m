@@ -9,6 +9,7 @@
 #import "TableViewController.h"
 #import "oneViewController.h"
 #import "twoViewController.h"
+#import "threeViewController.h"
 
 @interface TableViewController ()
 
@@ -116,7 +117,9 @@
         }
             
         case 2: {
-            
+            // 从storyBoard中获取控制器
+            threeViewController *threeVC = (threeViewController *)[mainStoryBoard instantiateViewControllerWithIdentifier:@"threevciden"];
+            [self.navigationController pushViewController:threeVC animated:YES];
             break;
         }
             

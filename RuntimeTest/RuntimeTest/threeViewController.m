@@ -7,8 +7,14 @@
 //
 
 #import "threeViewController.h"
+#import "Person.h"
+#import <objc/runtime.h>
 
 @interface threeViewController ()
+
+
+@property (nonatomic,strong) Person *person;
+@property (weak, nonatomic) IBOutlet UITextField *textview;
 
 @end
 
@@ -17,7 +23,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.person = [Person new];
+    
+    NSLog(@"%@",_person.sayName);
+    NSLog(@"%@",_person.saySex);
+    
+    Method m1 = class_getInstanceMethod([self.person class], @selector(sayName));
+    Method m2 = class_getInstanceMethod([self.person class], @selector(saySex));
+    method_exchangeImplementations(m1, m2);
+    
 }
+
+- (IBAction)sayName:(UIButton *)sender {
+    
+    self.textview.text = [_person sayName];
+}
+
+
+- (IBAction)saySex:(UIButton *)sender {
+    
+    self.textview.text = [_person saySex];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

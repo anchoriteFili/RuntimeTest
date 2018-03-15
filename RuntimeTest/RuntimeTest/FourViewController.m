@@ -7,8 +7,16 @@
 //
 
 #import "FourViewController.h"
+#import "Person.h"
+#import "Tool.h"
+#import <objc/runtime.h>
 
 @interface FourViewController ()
+
+
+@property (nonatomic,strong) Person *person;
+@property (nonatomic,strong) Tool *tool;
+@property (weak, nonatomic) IBOutlet UITextField *uitextview;
 
 @end
 
@@ -17,7 +25,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    Method m1 = class_getInstanceMethod([Person class], @selector(sayName));
+    Method m2 = class_getInstanceMethod([Tool class], @selector(changeMethod));
+    method_exchangeImplementations(m1, m2);
 }
+
+
+
+- (IBAction)button:(UIButton *)sender {
+    self.person = [Person new];
+    self.uitextview.text = [_person sayName];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -37,7 +37,6 @@
     } else {
         NSLog(@"Sorry, I don`t know");
     }
-    
     self.textview.text = @"beijing";
 }
 
