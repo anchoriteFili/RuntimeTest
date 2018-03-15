@@ -10,6 +10,8 @@
 #import "oneViewController.h"
 #import "twoViewController.h"
 #import "threeViewController.h"
+#import "FourViewController.h"
+#import "FiveViewController.h"
 
 @interface TableViewController ()
 
@@ -45,8 +47,6 @@
                     @"实现字典转模型的自动转换"];
     
     self.tableView.tableFooterView = [UIView new];
-    
-    
     
     
     // Uncomment the following line to preserve selection between presentations.
@@ -124,7 +124,9 @@
         }
             
         case 3: {
-            
+            // 从storyBoard中获取控制器
+            FourViewController *fourVC = (FourViewController *)[mainStoryBoard instantiateViewControllerWithIdentifier:@"fourvciden"];
+            [self.navigationController pushViewController:fourVC animated:YES];
             break;
         }
             

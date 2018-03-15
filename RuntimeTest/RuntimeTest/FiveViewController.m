@@ -7,7 +7,7 @@
 //
 
 #import "FiveViewController.h"
-
+#import "UIButton+count.h"
 
 @interface FiveViewController ()
 
@@ -18,6 +18,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.view.backgroundColor = [UIColor whiteColor];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    button.frame = CGRectMake(100, 100, 100, 100);
+    [button setTitle:@"按钮" forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(ButtonClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
+    
+}
+
+- (void)ButtonClick {
+    NSLog(@"按钮点击我了");
 }
 
 - (void)didReceiveMemoryWarning {
