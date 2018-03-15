@@ -12,6 +12,7 @@
 #import "threeViewController.h"
 #import "FourViewController.h"
 #import "FiveViewController.h"
+#import "SixViewController.h"
 
 @interface TableViewController ()
 
@@ -137,7 +138,8 @@
         }
             
         case 5: {
-            
+            SixViewController *sixVC = [SixViewController new];
+            [self.navigationController pushViewController:sixVC animated:YES];
             break;
         }
             
